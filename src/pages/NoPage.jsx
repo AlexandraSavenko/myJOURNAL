@@ -1,3 +1,3 @@
-export default function NoPage (){
+export function NoPage (){
     return <h1>Sorry, something went wrong</h1>
 }

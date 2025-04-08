@@ -1,9 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
 import Header from "./components/Header"
-import Mood from './pages/Mood'
-import Habits from './pages/Habits'
-import Cooking from './pages/Cooking'
-import NoPage from './pages/NoPage'
+import {Cooking, Habits, Mood, NoPage} from './pages/index'
 
 
 function App() {
