@@ -1,17 +1,19 @@
 import Navigation from "./Navigation";
 import DateDisplay from "./DateDisplay";
-import HamburgerCo from "./HamburgerCo";
+import Hamburger from "hamburger-react"
 import clsx from "clsx";
 import '../scss/Header.scss'
+import { useState } from "react";
 
 
 
 export default function Header () {
+        const [open, setOpen] = useState(false)
     
     return <header className="j-header">
         <DateDisplay/>
         <div className="burger">
-        <HamburgerCo/>
+        <Hamburger size={18} toggled={open} toggle={setOpen}/>
         </div>
         <nav className={clsx('header-nav', open && 'header-nav-open')}>
         <Navigation />

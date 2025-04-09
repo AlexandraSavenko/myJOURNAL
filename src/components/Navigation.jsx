@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-
+import '../scss/Navigation.scss'
 export default function Navigation () {
-    return <ul>
+    return <ul className="nav-list">
         <li className="nav-item">
             <NavLink to='/mood'>Mood</NavLink>
             </li>
