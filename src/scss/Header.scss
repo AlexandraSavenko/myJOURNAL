@@ -1,4 +1,19 @@
+@use './mixins';
 .j-header{
     background-color: grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     
+}
+.burger{
+    @include mixins.media (desktop){
+        display: none;
+    }
+}
+.header-nav{
+    display: none;
+    @include mixins.media (desktop){
+        display: block;
+    }
 }

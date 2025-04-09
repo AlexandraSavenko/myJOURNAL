@@ -1,0 +1,19 @@
+@use 'sass:math';
+@use './breakpoints';
+
+@mixin media($_screen) {
+    @if $_screen == mobile {
+      @media screen and (min-width: breakpoints.$mobile) {
+        @content;
+      }
+      } 
+      @else if $_screen == tablet {
+        @media screen and (min-width: breakpoints.$tablet) {
+          @content;
+        }
+    }@else if $_screen == desktop {
+      @media screen and (min-width: breakpoints.$desktop) {
+        @content;
+      }
+    }
+  }
