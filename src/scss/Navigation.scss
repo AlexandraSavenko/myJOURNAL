@@ -1,4 +1,21 @@
+@use './mixins';
 .nav-list{
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
+    gap: 16px;
+    @include mixins.media(tablet){
+    margin: 0 36px;
+    padding: 0 32px;    
+    }
+
+}
+
+.nav-item{
+    padding: 8px 12px;
+    border: 1px solid white;
+    border-bottom: none;
+    border-radius: 24px 8px 0 0; 
+    min-width: 84px; 
+    text-align: center;
 }

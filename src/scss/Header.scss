@@ -1,10 +1,21 @@
 @use './mixins';
+
+header {
+    width: 100%;
+    background-color: gray; 
+    position: relative;
+    @include mixins.media(desktop){
+    padding-top: 12px;
+    padding-bottom: 12px;  
+    }
+
+}
 .j-header{
-    background-color: grey;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    z-index: 2;
     
 }
 .burger{
@@ -16,14 +27,20 @@
     display: none;
     @include mixins.media (desktop){
         display: block;
+        position: absolute;
+        right: 80px;
+        bottom: 0;
+
     }
 }
 .header-nav-open{
     display: block;
-    height: 24px;
+    height: auto;
     width: 100%;
+    padding: 0 24px;
     background-color: gray;
     position: absolute;
-    bottom: -20px;
-    z-index: 100;
+    top: 100%;
+    left: 0;
+    z-index: 1;
 }
