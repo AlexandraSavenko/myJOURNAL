@@ -1,3 +1,8 @@
+import Weather from "../components/Wearther";
+
 export function Mood (){
-    return <h1>Mood</h1>
+    return <div>
+    <h1>Mood</h1>
+    <Weather/>
+    </div>
 }
