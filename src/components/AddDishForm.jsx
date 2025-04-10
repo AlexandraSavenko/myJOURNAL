@@ -14,7 +14,6 @@ export default function AddDishForm (){
     //     comment: Yup.string().min(2, "Too short").max(256, "Too long").required("Required"),
     //   });
     return <div className='add-dish-form'>
-        <div className="ad-form-wrapper">
     <Formik 
     initialValues={{
         ingredients: '',
@@ -33,6 +32,5 @@ export default function AddDishForm (){
       {/* <ToastContainer/> */}
       </Form>
     </Formik>
-    </div>
     </div>
 }
