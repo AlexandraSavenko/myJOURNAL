@@ -4,17 +4,18 @@ import * as Yup from "yup";
 import css from '../scss/WeeklyForm.module.scss';
 import {nanoid} from '@reduxjs/toolkit';
 import { useDispatch } from "react-redux";
-
-
+import { addNewHabit } from "../redux/weeklyHabitsSlice";
 
 
 export default function AddDishForm (){
 
     const ValidationSchema = Yup.object().shape({
         habit: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
-        repeatTimes: Yup.string().max(4, "Too many times!").matches(/^\d+$/, <em>Invalid number of times</em>)
+        repeatTimes: Yup.string().max(4, "Too many times!")
+        .matches(/^\d+$/, <em>Invalid number of times</em>)
       });
-const dispatch = useDispatch;
+const dispatch = useDispatch();
+
 const handleNewHabit = (formValue) => {
   dispatch(addNewHabit({id: nanoid(), ...formValue}))
 }
