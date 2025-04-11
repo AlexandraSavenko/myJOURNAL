@@ -16,7 +16,7 @@ async ({lat, lon}, thunkAPI) => {
                 units: 'metric',
             }
         })
-        console.log(response.data)
+        // console.log(response.data)
         return response.data
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message)

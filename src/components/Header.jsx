@@ -11,7 +11,6 @@ export default function Header () {
         const [open, setOpen] = useState(false)
     
     return <header>
-        <div className={css.container}>
             <div className={css.jHeader}>
         <DateDisplay/>
         <div className={css.burger}>
@@ -20,7 +19,6 @@ export default function Header () {
         <nav className={clsx(css.headerNav, open && css.headerNavOpen)}>
         <Navigation />
         </nav>
-        </div>
         </div>
     </header>
 }

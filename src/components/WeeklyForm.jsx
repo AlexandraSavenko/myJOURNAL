@@ -1,33 +1,40 @@
 import { Formik, Form, Field } from "formik";
-// import * as Yup from "yup";
+import * as Yup from "yup";
 // import { ToastContainer, toast } from 'react-toastify';
-import css from '../scss/WeeklyForm.module.scss'
+import css from '../scss/WeeklyForm.module.scss';
+import {nanoid} from '@reduxjs/toolkit';
+import { useDispatch } from "react-redux";
 
 
 
 
 export default function AddDishForm (){
 
-    // const FeedbackSchema = Yup.object().shape({
-    //     username: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
-    //     email: Yup.string().email("Must be a valid email!").required("Required"),
-    //     comment: Yup.string().min(2, "Too short").max(256, "Too long").required("Required"),
-    //   });
+    const ValidationSchema = Yup.object().shape({
+        habit: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
+        repeatTimes: Yup.string().max(4, "Too many times!").matches(/^\d+$/, <em>Invalid number of times</em>)
+      });
+const dispatch = useDispatch;
+const handleNewHabit = (formValue) => {
+  dispatch(addNewHabit({id: nanoid(), ...formValue}))
+}
     return <div className={css.formWrap}>
     <Formik 
     initialValues={{
-        ingredients: '',
-        process: '',
+        habit: '',
+        repeatTimes: '',
     }} 
     onSubmit={(value, action)=> {
         // toast.success("Form submitted successfully!");
+        console.log(value)
+        handleNewHabit(value)
         action.resetForm()
     }}
-    // validationSchema={FeedbackSchema}
+    validationSchema={ValidationSchema}
     >
       <Form className={css.form}>
         <Field className={css.habitInput} type="text" name="habit"/>
-        <Field className={css.numberInput} type="number" name="repeatTimes"/>
+        <Field className={css.numberInput} type="text" name="repeatTimes"/>
         <button type="submit">save</button>
       {/* <ToastContainer/> */}
       </Form>
