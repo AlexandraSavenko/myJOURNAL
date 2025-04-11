@@ -17,7 +17,7 @@ export default function AddDishForm (){
 const dispatch = useDispatch();
 
 const handleNewHabit = (formValue) => {
-  dispatch(addNewHabit({id: nanoid(), ...formValue}))
+  dispatch(addNewHabit({id: nanoid(), ...formValue, count: 0}))
 }
     return <div className={css.formWrap}>
     <Formik 

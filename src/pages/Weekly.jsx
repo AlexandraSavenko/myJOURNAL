@@ -5,7 +5,6 @@ import WeeklyHabitEl from '../components/WeeklyHabitEl'
 
 export function Weekly () {
     const myHabits = useSelector(weeklyHabitsArr)
-    console.log(myHabits)
     return <section id="weekly"> 
     <WeeklyForm/>    
     <h1>weekly habits</h1>
