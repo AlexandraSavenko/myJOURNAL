@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 // import { fetchContacts } from "./contactsOps";
 // import { addContact, deleteContact } from "./contactsOps";
-
+export const weeklyHabitsArr = (state) => state.weeklyHabits.weeklyHabitsList
 export const slice = createSlice({
   name: "weeklyHabits",
   initialState: {
-    weeklyHabits: [],
+    weeklyHabitsList: [],
     // isLoading: false,
     // error: false,
   },
   reducers: {
     addNewHabit: (state, action) => {
-        state.weeklyHabits.push(action.payload)
+        state.weeklyHabitsList.push(action.payload)
     }
   }
 });

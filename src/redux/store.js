@@ -4,6 +4,6 @@ import weeklyHabbitReducer from './weeklyHabitsSlice'
 export const store = configureStore({
     reducer: {
         weather: weatherReducer,
-        weeklyhab: weeklyHabbitReducer,
+        weeklyHabits: weeklyHabbitReducer,
     },
 });
