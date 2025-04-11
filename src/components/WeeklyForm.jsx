@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from "formik";
 // import * as Yup from "yup";
 // import { ToastContainer, toast } from 'react-toastify';
-import '../scss/WeeklyForm.scss'
+import css from '../scss/WeeklyForm.module.scss'
 
 
 
@@ -13,7 +13,7 @@ export default function AddDishForm (){
     //     email: Yup.string().email("Must be a valid email!").required("Required"),
     //     comment: Yup.string().min(2, "Too short").max(256, "Too long").required("Required"),
     //   });
-    return <div className='add-dish-form'>
+    return <div className={css.formWrap}>
     <Formik 
     initialValues={{
         ingredients: '',
@@ -25,9 +25,9 @@ export default function AddDishForm (){
     }}
     // validationSchema={FeedbackSchema}
     >
-      <Form className="ad-form">
-        <Field className='ad-input ad-ingredients' as="textarea" name="ingredients" rows="10"/>
-        <Field className='ad-input ad-process' as="textarea" name="process" rows="10" />
+      <Form className={css.form}>
+        <Field className={css.habitInput} type="text" name="habit"/>
+        <Field className={css.numberInput} type="number" name="repeatTimes"/>
         <button type="submit">save</button>
       {/* <ToastContainer/> */}
       </Form>

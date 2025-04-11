@@ -1,5 +1,4 @@
 export * from './Home.jsx'
-export * from './Cooking.jsx'
-export * from './Habits.jsx'
 export * from './Mood.jsx'
+export * from './Weekly.jsx'
 export * from './NoPage.jsx'
