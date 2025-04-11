@@ -2,7 +2,7 @@ import Navigation from "./Navigation";
 import DateDisplay from "./DateDisplay";
 import Hamburger from "hamburger-react"
 import clsx from "clsx";
-import '../scss/Header.scss'
+import css from '../scss/Header.module.scss'
 import { useState } from "react";
 
 
@@ -11,13 +11,13 @@ export default function Header () {
         const [open, setOpen] = useState(false)
     
     return <header>
-        <div className="container">
-            <div className="j-header">
+        <div className={css.container}>
+            <div className={css.jHeader}>
         <DateDisplay/>
-        <div className="burger">
+        <div className={css.burger}>
         <Hamburger size={20} toggled={open} toggle={setOpen}/>
         </div>
-        <nav className={clsx('header-nav', open && 'header-nav-open')}>
+        <nav className={clsx(css.headerNav, open && css.headerNavOpen)}>
         <Navigation />
         </nav>
         </div>

@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from "formik";
 // import * as Yup from "yup";
 // import { ToastContainer, toast } from 'react-toastify';
-import '../scss/AddDishForm.scss'
+import '../scss/WeeklyForm.scss'
 
 
 

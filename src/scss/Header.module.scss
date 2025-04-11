@@ -10,7 +10,7 @@ header {
     }
 
 }
-.j-header{
+.jHeader{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,7 @@ header {
         display: none;
     }
 }
-.header-nav{
+.headerNav{
     display: none;
     @include mixins.media (desktop){
         display: block;
@@ -33,7 +33,7 @@ header {
 
     }
 }
-.header-nav-open{
+.headerNavOpen{
     display: block;
     height: auto;
     width: 100%;
