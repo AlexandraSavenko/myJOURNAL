@@ -12,10 +12,16 @@ export const slice = createSlice({
   reducers: {
     addNewHabit: (state, action) => {
         state.weeklyHabitsList.push(action.payload)
+    },
+    addCount: (state, action) => {
+        const theHabit = state.weeklyHabitsList.find(el => el.id === action.payload)
+        if(theHabit && theHabit.count < Number(theHabit.repeatTimes)){
+            theHabit.count += 1
+        }
     }
   }
 });
 
 
-export const {addNewHabit} = slice.actions;
+export const {addNewHabit, addCount} = slice.actions;
 export default slice.reducer;

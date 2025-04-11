@@ -27,7 +27,7 @@ const handleNewHabit = (formValue) => {
     }} 
     onSubmit={(value, action)=> {
         // toast.success("Form submitted successfully!");
-        console.log(value)
+        // console.log(value)
         handleNewHabit(value)
         action.resetForm()
     }}

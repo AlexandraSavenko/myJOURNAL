@@ -10,7 +10,7 @@ export function Weekly () {
     <h1>weekly habits</h1>
     <ul>
         {
-            myHabits.length > 0 ? myHabits.map(el => {console.log(el)
+            myHabits.length > 0 ? myHabits.map(el => {
                 return <li key={el.id}>
                 <WeeklyHabitEl newHabit={el}/>
             </li> }) : <li>
