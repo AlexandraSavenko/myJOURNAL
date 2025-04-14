@@ -1,5 +1,6 @@
 // import { useDispatch } from "react-redux"
 // import { addCount, lowCount } from "../redux/weeklyHabitsSlice"
+import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import css from '../scss/HabitElement.module.scss'
 
 export default function HabitElement ({newHabit, onPlus, onMinus}) {
@@ -20,7 +21,12 @@ export default function HabitElement ({newHabit, onPlus, onMinus}) {
         <button onClick={()=> onMinus(newHabit.id)}>-</button> 
         <p>{newHabit.repeatTimes}</p>       
         </div> : <p>{newHabit.repeat}</p> }
-                 
+        <div className="result">{
+            newHabit.count === Number(newHabit.repeatTimes) &&  <FaRegFaceSmileBeam />
+            }
+       
+
+        </div>
         
     </div>
 }
