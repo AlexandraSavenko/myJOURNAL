@@ -6,6 +6,9 @@ export default function Navigation ({closeMenu}) {
             <NavLink onClick={closeMenu} to='/mood'>mood tracker</NavLink>
             </li>
         <li className={css.navItem}>
+            <NavLink onClick={closeMenu} to='/daily'>daily habits</NavLink>
+            </li>
+        <li className={css.navItem}>
             <NavLink onClick={closeMenu} to='/weekly'>weekly habits</NavLink>
             </li>
         
