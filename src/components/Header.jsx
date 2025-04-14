@@ -9,6 +9,10 @@ import { useState } from "react";
 
 export default function Header () {
         const [open, setOpen] = useState(false)
+
+        const handleNavigation = () => {
+            setOpen(false)
+        }
     
     return <header>
             <div className={css.jHeader}>
@@ -17,7 +21,7 @@ export default function Header () {
         <Hamburger size={20} toggled={open} toggle={setOpen}/>
         </div>
         <nav className={clsx(css.headerNav, open && css.headerNavOpen)}>
-        <Navigation />
+        <Navigation closeMenu={handleNavigation} />
         </nav>
         </div>
     </header>
