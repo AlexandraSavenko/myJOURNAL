@@ -1,10 +1,19 @@
 import { useSelector } from "react-redux";
-import DailyForm from "../components/DailyForm";
+import DailyForm from "../components/HabitForm";
 import {dailyHabitsArr} from '../redux/dailyHabitsSlice'
 import HabitElement from "../components/HabitElement";
+import { useDispatch } from "react-redux"
+import { addCount, lowCount } from "../redux/dailyHabitsSlice"
 
 export function Daily (){
     const myHabits = useSelector(dailyHabitsArr)
+    const dispatch = useDispatch()
+    const handleIncrement = (id) => {
+        dispatch(addCount(id))
+    }
+    const handleDecrement = (id) => {
+        dispatch(lowCount(id))
+    }
     return <div>
         <DailyForm/>
     <h1>Daily</h1>
@@ -12,7 +21,7 @@ export function Daily (){
         {
             myHabits.length > 0 ? myHabits.map(el => {
                 return <li key={el.id}>
-                <HabitElement newHabit={el}/>
+                <HabitElement newHabit={el} onPlus={handleIncrement} onMinus={handleDecrement}/>
             </li> }) : <li>
                 <p>Add you first habit</p>
             </li>
