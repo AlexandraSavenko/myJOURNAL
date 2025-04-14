@@ -1,0 +1,20 @@
+.weeklyEl{
+    border-radius: 12px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+}
+
+.count button {
+    width: 28px;
+    height: 28px;
+    background-color: red;
+    border: none;
+    border-radius: 8px;
+}
+
+.count span {
+    padding: 12px;
+}
