@@ -1,10 +1,14 @@
 import { useDispatch } from "react-redux"
-import { addCount } from "../redux/weeklyHabitsSlice"
+import { addCount, lowCount } from "../redux/weeklyHabitsSlice"
 
 export default function WeeklyHabitEl ({newHabit}) {
     const dispatch = useDispatch()
     const handleIncrement = () => {
         dispatch(addCount(newHabit.id))
+    }
+
+    const handleDecrement = () => {
+        dispatch(lowCount(newHabit.id))
     }
     return <div className="weeklyEl">
         <p>{newHabit.habit}</p>
@@ -12,7 +16,7 @@ export default function WeeklyHabitEl ({newHabit}) {
         <div>
           <button onClick={handleIncrement}>+</button>
           <span>{newHabit.count}</span>
-          <button>-</button>
+          <button onClick={handleDecrement}>-</button>
         </div>
     </div>
 }
