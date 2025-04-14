@@ -4,10 +4,16 @@ import {dailyHabitsArr} from '../redux/dailyHabitsSlice'
 import HabitElement from "../components/HabitElement";
 import { useDispatch } from "react-redux"
 import { addCount, lowCount } from "../redux/dailyHabitsSlice"
+import {nanoid} from '@reduxjs/toolkit';
+import { addNewHabit } from "../redux/dailyHabitsSlice";
 
 export function Daily (){
     const myHabits = useSelector(dailyHabitsArr)
     const dispatch = useDispatch()
+
+const handleNewHabit = (formValue) => {
+  dispatch(addNewHabit({id: nanoid(), ...formValue, count: 0}))
+}
     const handleIncrement = (id) => {
         dispatch(addCount(id))
     }
@@ -15,7 +21,7 @@ export function Daily (){
         dispatch(lowCount(id))
     }
     return <div>
-        <DailyForm/>
+        <DailyForm onSubmit={handleNewHabit}/>
     <h1>Daily</h1>
 <ul>
         {
