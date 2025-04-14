@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { addNewHabit } from "../redux/weeklyHabitsSlice";
 
 
-export default function WeeklyForm (){
+export default function DailyForm (){
 
     const ValidationSchema = Yup.object().shape({
         habit: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
