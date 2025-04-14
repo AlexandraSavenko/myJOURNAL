@@ -10,7 +10,13 @@ import {nanoid} from '@reduxjs/toolkit';
 export function Daily (){
     const myHabits = useSelector(dailyHabitsArr)
     const dispatch = useDispatch()
-
+let totalForDay = 0;
+const totalCount = () => {
+    myHabits.map(el => {
+        el.repeat === 'Once' ? totalForDay += 1 : totalForDay += Number(el.repeatTimes)
+    })
+}
+totalCount()
 const handleNewHabit = (formValue) => {
   dispatch(addNewHabit({id: nanoid(), ...formValue, count: 0}))
 }
@@ -23,6 +29,11 @@ const handleNewHabit = (formValue) => {
     return <div>
         <DailyForm onSubmit={handleNewHabit}/>
     <h1>Daily</h1>
+    <div className="total">
+    {[...Array(totalForDay)].map((_, i) => (
+    <span key={i}>✅</span>
+  ))}
+    </div>
 <ul>
         {
             myHabits.length > 0 ? myHabits.map(el => {
@@ -35,3 +46,4 @@ const handleNewHabit = (formValue) => {
     </ul>
     </div>
 }
+
