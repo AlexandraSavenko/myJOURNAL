@@ -11,14 +11,17 @@ export default function HabitElement ({newHabit}) {
     const handleDecrement = () => {
         dispatch(lowCount(newHabit.id))
     }
+    console.log(newHabit)
     return <div className={css.weeklyEl}>
         <p>{newHabit.habit}</p>
-        <div className={css.count}>
+        {newHabit.repeat === "Many" ? <div className={css.count}>
         <button onClick={handleIncrement}>+</button>
         <span>{newHabit.count}</span>
-        <button onClick={handleDecrement}>-</button>        
-        </div>          
-        <p>{newHabit.repeatTimes}</p>
+        <button onClick={handleDecrement}>-</button> 
+        <p>{newHabit.repeatTimes}</p>       
+        </div> : <p>{newHabit.repeat}</p> }
+                 
+        
     </div>
 }
 
