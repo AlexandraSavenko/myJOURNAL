@@ -1,10 +1,10 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, useFormikContext } from "formik";
 import * as Yup from "yup";
 // import { ToastContainer, toast } from 'react-toastify';
 import css from '../scss/WeeklyForm.module.scss';
 import {nanoid} from '@reduxjs/toolkit';
 import { useDispatch } from "react-redux";
-import { addNewHabit } from "../redux/weeklyHabitsSlice";
+import { addNewHabit } from "../redux/dailyHabitsSlice";
 
 
 export default function DailyForm (){
@@ -23,6 +23,7 @@ const handleNewHabit = (formValue) => {
     <Formik 
     initialValues={{
         habit: '',
+        repeat: '',
         repeatTimes: '',
     }} 
     onSubmit={(value, action)=> {
@@ -33,12 +34,30 @@ const handleNewHabit = (formValue) => {
     }}
     validationSchema={ValidationSchema}
     >
-      <Form className={css.form}>
+        {
+        ({values}) =>(
+        <Form className={css.form}>
+        <label> Habit:
         <Field className={css.habitInput} type="text" name="habit"/>
-        <Field className={css.numberInput} type="text" name="repeatTimes"/>
+        </label>
+
+        <label>Once
+        <Field type="radio" name="repeat" value="Once" />
+        </label>
+
+        <label>More than once
+        <Field type="radio" name="repeat" value="Many" />
+        </label>
+        
+        {values.repeat === 'Many' && ( <label>How many times:
+            <Field className={css.numberInput} type="text" name="repeatTimes"/></label>
+            )}
         <button type="submit">save</button>
       {/* <ToastContainer/> */}
       </Form>
+      )
+      }
+      
     </Formik>
     </div>
 }
