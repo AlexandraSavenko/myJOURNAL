@@ -3,9 +3,9 @@ import DailyForm from "../components/HabitForm";
 import {dailyHabitsArr} from '../redux/dailyHabitsSlice'
 import HabitElement from "../components/HabitElement";
 import { useDispatch } from "react-redux"
-import { addCount, lowCount } from "../redux/dailyHabitsSlice"
+import { addNewHabit, addCount, lowCount } from "../redux/dailyHabitsSlice"
 import {nanoid} from '@reduxjs/toolkit';
-import { addNewHabit } from "../redux/dailyHabitsSlice";
+// import { addNewHabit } from "../redux/dailyHabitsSlice";
 
 export function Daily (){
     const myHabits = useSelector(dailyHabitsArr)
