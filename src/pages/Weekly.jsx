@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import WeeklyForm from '../components/WeeklyForm'
 import { weeklyHabitsArr } from '../redux/weeklyHabitsSlice'
-import WeeklyHabitEl from '../components/WeeklyHabitEl'
+import HabitElement from '../components/HabitElement'
 
 export function Weekly () {
     const myHabits = useSelector(weeklyHabitsArr)
@@ -12,7 +12,7 @@ export function Weekly () {
         {
             myHabits.length > 0 ? myHabits.map(el => {
                 return <li key={el.id}>
-                <WeeklyHabitEl newHabit={el}/>
+                <HabitElement newHabit={el}/>
             </li> }) : <li>
                 <p>Add you first weekly habit</p>
             </li>

@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux"
 import { addCount, lowCount } from "../redux/weeklyHabitsSlice"
 import css from '../scss/WeeklyHabitEl.module.scss'
 
-export default function WeeklyHabitEl ({newHabit}) {
+export default function HabitElement ({newHabit}) {
     const dispatch = useDispatch()
     const handleIncrement = () => {
         dispatch(addCount(newHabit.id))

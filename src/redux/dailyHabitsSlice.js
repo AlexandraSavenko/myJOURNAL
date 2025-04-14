@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const dailyHabitsArr = (state) => state.weeklyHabits.weeklyHabitsList
+export const dailyHabitsArr = (state) => state.dailyHabits.dailyHabitsList
 export const slice = createSlice({
   name: "dailyHabits",
   initialState: {
