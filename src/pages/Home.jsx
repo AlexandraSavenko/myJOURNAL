@@ -1,11 +1,13 @@
-// import { useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 
 export function Home () {
-    // const weather = useSelector(state => state.weather.weatherData)
+    const {weatherData, isLoading, error} = useSelector(state => state.weather)
     
-    // const weatherIconCode = weather.weather[0].icon;
-    // const weatherIconURL = `https://openweathermap.org/img/wn/${weatherIconCode}@2x.png`
+    // const weatherIconCode = weatherData.weather[0].icon;
+    const weatherIconURL = weatherData?.weather ? `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png` : null;
     return <div> <h1>Home Page</h1>
-    {/* <img src={weatherIconURL} alt="" /> */}
+    {isLoading && <p>Weather loading</p> }
+    {error && <p>Sorry, something went wrong</p> }
+{  weatherData && <img src={weatherIconURL} alt="" />}
     </div>
 }
