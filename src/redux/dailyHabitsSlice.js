@@ -5,6 +5,7 @@ export const slice = createSlice({
   name: "dailyHabits",
   initialState: {
     dailyHabitsList: [],
+    dailyProgress: {},
     // isLoading: false,
     // error: false,
   },
@@ -26,10 +27,15 @@ export const slice = createSlice({
       if(theHabit && theHabit.count < Number(theHabit.repeatTimes) && theHabit.count > 0){
           theHabit.count -= 1
       }
+  },
+  saveDailyProgress: (state, action) => {
+    const {day, progress} = action.payload;
+    console.log(action.payload)
+state.dailyProgress[day] = progress;
   }
   }
 });
 
 
-export const {addNewHabit, addCount, lowCount} = slice.actions;
+export const {addNewHabit, addCount, lowCount, saveDailyProgress} = slice.actions;
 export default slice.reducer;

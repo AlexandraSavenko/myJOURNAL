@@ -1,14 +1,20 @@
 .days{
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-columns: repeat(7, 1fr);
 }
 
 .day{
-    width: 30px;
     margin: 3px;
-    padding: 10px;
+    padding: 4px;
     font-size: 15px;
     text-align: center;
     border-radius: 20px;
     border: 2px solid black;
 }
+
+.progress-0 { background-color: #eee; }
+.progress-20 { background-color: #ffcccc; }
+.progress-40 { background-color: #ff9999; }
+.progress-60 { background-color: #ff6666; }
+.progress-80 { background-color: #ff3333; }
+.progress-100 { background-color: #cc0000; }

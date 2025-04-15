@@ -3,15 +3,16 @@ import DailyForm from "../components/HabitForm";
 import {dailyHabitsArr} from '../redux/dailyHabitsSlice'
 import HabitElement from "../components/HabitElement";
 import { useDispatch } from "react-redux"
-import { addNewHabit, addCount, lowCount } from "../redux/dailyHabitsSlice"
+import { addNewHabit, addCount, lowCount, saveDailyProgress} from "../redux/dailyHabitsSlice"
 import {nanoid} from '@reduxjs/toolkit';
 import TrackerCo from "../components/TrackerCo";
+import { useEffect } from "react";
 // import { addNewHabit } from "../redux/dailyHabitsSlice";
 
 export function Daily (){
     const myHabits = useSelector(dailyHabitsArr)
     const dispatch = useDispatch()
-// const totalForDay = myHabits.reduce((acc, el)=>el.repeat === 'Once' ? acc += 1 : acc += Number(el.repeatTimes), 0);
+const totalForDay = myHabits.reduce((acc, el)=>el.repeat === 'Once' ? acc += 1 : acc += Number(el.repeatTimes), 0);
 const totalDone = myHabits.reduce((acc, el) => acc += el.count, 0)
 
 const handleNewHabit = (formValue) => {
@@ -23,6 +24,13 @@ const handleNewHabit = (formValue) => {
     const handleDecrement = (id) => {
         dispatch(lowCount(id))
     }
+
+    useEffect(() => {
+        const today = new Date().getDate()
+        const progress = Math.round((totalDone / totalForDay) * 100);
+      
+        dispatch(saveDailyProgress({ day: today, progress }));
+      }, [totalDone, totalForDay, dispatch]);
     return <div>
         <DailyForm onSubmit={handleNewHabit}/>
     <h1>Daily</h1>

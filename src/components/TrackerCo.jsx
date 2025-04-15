@@ -1,10 +1,7 @@
 import css from '../scss/TrackerCo.module.scss'
 export default function TrackerCo () {
     const daysInMonthList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    // const shortDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-// const shortMonths = [  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-//   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-// ];
+
     const now = new Date ()
     // const currentDay = shortDays[now.getDay()]
     // const currentDate = now.getDate()
@@ -17,7 +14,7 @@ export default function TrackerCo () {
 
     const calendarArr = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     for (let i = 0; i < adjustedFirstDay; i++) {
-        calendarArr.push(null); // Empty slots
+        calendarArr.push(null);
       }
     for (let i = 1; i<= currentDaysInMonth; i++){
         calendarArr.push(i)
@@ -25,7 +22,7 @@ export default function TrackerCo () {
     return <div className={css.tracker}>
 <p>Current month</p>
 <div className={css.days}>
-{calendarArr.map((el, i) => <div key={i} id={i} className={css.day}>{el}</div>)}
+{calendarArr.map((el, i) => <div key={i} id={el ? el : 'x'} className={css.day}>{el}</div>)}
 </div>
     </div>
     
