@@ -21,6 +21,7 @@ const handleNewHabit = (formValue) => {
   dispatch(addNewHabit({id: nanoid(), ...formValue, count: 0}))
 }
     const handleIncrement = (id) => {
+        console.log('works')
         dispatch(addCount(id))
     }
     const handleDecrement = (id) => {

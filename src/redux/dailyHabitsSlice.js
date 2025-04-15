@@ -14,6 +14,9 @@ export const slice = createSlice({
     },
     addCount: (state, action) => {
         const theHabit = state.dailyHabitsList.find(el => el.id === action.payload)
+        if(theHabit && theHabit.repeat === 'Once'){
+          theHabit.count += 1
+        }
         if(theHabit && theHabit.count < Number(theHabit.repeatTimes)){
             theHabit.count += 1
         }
