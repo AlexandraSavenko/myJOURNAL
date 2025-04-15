@@ -5,14 +5,14 @@ import HabitElement from "../components/HabitElement";
 import { useDispatch } from "react-redux"
 import { addNewHabit, addCount, lowCount } from "../redux/dailyHabitsSlice"
 import {nanoid} from '@reduxjs/toolkit';
+import TrackerCo from "../components/TrackerCo";
 // import { addNewHabit } from "../redux/dailyHabitsSlice";
 
 export function Daily (){
     const myHabits = useSelector(dailyHabitsArr)
     const dispatch = useDispatch()
-const totalForDay = myHabits.reduce((acc, el)=>el.repeat === 'Once' ? acc += 1 : acc += Number(el.repeatTimes), 0);
+// const totalForDay = myHabits.reduce((acc, el)=>el.repeat === 'Once' ? acc += 1 : acc += Number(el.repeatTimes), 0);
 const totalDone = myHabits.reduce((acc, el) => acc += el.count, 0)
-console.log(totalDone)
 
 const handleNewHabit = (formValue) => {
   dispatch(addNewHabit({id: nanoid(), ...formValue, count: 0}))
@@ -41,6 +41,7 @@ const handleNewHabit = (formValue) => {
             </li>
         }
     </ul>
+    <TrackerCo/>
     </div>
 }
 
