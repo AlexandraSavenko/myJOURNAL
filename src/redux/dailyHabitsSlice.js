@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const dailyHabitsArr = (state) => state.dailyHabits.dailyHabitsList
+export const dailyHabitsArr = (state) => state.dailyHabits.dailyHabitsList;
+export const dailyHabitProgress = (state) => state.dailyHabits.dailyProgress;
 export const slice = createSlice({
   name: "dailyHabits",
   initialState: {
@@ -30,8 +31,7 @@ export const slice = createSlice({
   },
   saveDailyProgress: (state, action) => {
     const {day, progress} = action.payload;
-    console.log(action.payload)
-state.dailyProgress[day] = progress;
+state.dailyProgress[day] = progress || 0;
   }
   }
 });

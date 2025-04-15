@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import DailyForm from "../components/HabitForm";
-import {dailyHabitsArr} from '../redux/dailyHabitsSlice'
+import {dailyHabitProgress, dailyHabitsArr} from '../redux/dailyHabitsSlice'
 import HabitElement from "../components/HabitElement";
 import { useDispatch } from "react-redux"
 import { addNewHabit, addCount, lowCount, saveDailyProgress} from "../redux/dailyHabitsSlice"
@@ -11,6 +11,8 @@ import { useEffect } from "react";
 
 export function Daily (){
     const myHabits = useSelector(dailyHabitsArr)
+    const myProgress = useSelector(dailyHabitProgress)
+    console.log(myProgress)
     const dispatch = useDispatch()
 const totalForDay = myHabits.reduce((acc, el)=>el.repeat === 'Once' ? acc += 1 : acc += Number(el.repeatTimes), 0);
 const totalDone = myHabits.reduce((acc, el) => acc += el.count, 0)
