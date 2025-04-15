@@ -3,7 +3,7 @@ import HabitForm from '../components/HabitForm'
 import { weeklyHabitsArr } from '../redux/weeklyHabitsSlice'
 import HabitElement from '../components/HabitElement'
 import { useDispatch } from "react-redux"
-import { addNewHabit, addCount, lowCount } from "../redux/weeklyHabitsSlice"
+import { addNewHabit, addCount, lowCount, deleteHabit } from "../redux/weeklyHabitsSlice"
 import {nanoid} from '@reduxjs/toolkit';
 
 export function Weekly () {  
@@ -14,13 +14,14 @@ export function Weekly () {
         dispatch(addNewHabit({id: nanoid(), ...formValue, count: 0}))
       }
     const handleIncrement = (id) => {
-        console.log('works')
         dispatch(addCount(id))
     }
     const handleDecrement = (id) => {
         dispatch(lowCount(id))
     }
-   
+   const handleDelete = (id) => {
+    dispatch(deleteHabit(id))
+   }
 
     return <section id="weekly"> 
     <HabitForm onSubmit={handleNewHabit}/>    
@@ -34,7 +35,7 @@ export function Weekly () {
         {
             myHabits.length > 0 ? myHabits.map(el => {
                 return <li key={el.id}>
-                <HabitElement newHabit={el} onPlus={handleIncrement} onMinus={handleDecrement}/>
+                <HabitElement newHabit={el} onPlus={handleIncrement} onMinus={handleDecrement} onDelete={handleDelete}/>
             </li> }) : <li>
                 <p>Add you first weekly habit</p>
             </li>

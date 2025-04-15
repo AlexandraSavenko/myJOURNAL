@@ -3,8 +3,7 @@
 import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import css from '../scss/HabitElement.module.scss'
 
-export default function HabitElement ({newHabit, onPlus, onMinus}) {
-    
+export default function HabitElement ({newHabit, onPlus, onMinus, onDelete}) {
     return <div className={css.weeklyEl}>
         <p>{newHabit.habit}</p>
         {newHabit.repeat === "Many" ? <div className={css.count}>
@@ -16,10 +15,8 @@ export default function HabitElement ({newHabit, onPlus, onMinus}) {
         <div className="result">{newHabit.repeat === "Once" ? newHabit.count === 1 && <FaRegFaceSmileBeam /> :
             newHabit.count === Number(newHabit.repeatTimes) &&  <FaRegFaceSmileBeam />
             }
-       
-
         </div>
-        
+        <button onClick={() => onDelete(newHabit.id)}>Del</button>
     </div>
 }
 

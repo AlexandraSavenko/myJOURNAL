@@ -14,7 +14,7 @@ export const slice = createSlice({
     },
     addCount: (state, action) => {
         const theHabit = state.weeklyHabitsList.find(el => el.id === action.payload)
-        if(theHabit && theHabit.rereat === 'Once'){
+        if(theHabit && theHabit.repeat === 'Once'){
           theHabit.count += 1;
         }
         if(theHabit && theHabit.count < Number(theHabit.repeatTimes)){
@@ -26,10 +26,13 @@ export const slice = createSlice({
       if(theHabit && theHabit.count < Number(theHabit.repeatTimes) && theHabit.count > 0){
           theHabit.count -= 1
       }
+  },
+  deleteHabit: (state, action) => {
+    state.weeklyHabitsList = state.weeklyHabitsList.filter(habit => habit.id !== action.payload)
   }
   }
 });
 
 
-export const {addNewHabit, addCount, lowCount} = slice.actions;
+export const {addNewHabit, addCount, lowCount, deleteHabit} = slice.actions;
 export default slice.reducer;
