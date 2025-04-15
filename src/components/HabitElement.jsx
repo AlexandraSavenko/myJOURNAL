@@ -4,15 +4,7 @@ import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import css from '../scss/HabitElement.module.scss'
 
 export default function HabitElement ({newHabit, onPlus, onMinus}) {
-    // const dispatch = useDispatch()
-    // const handleIncrement = () => {
-    //     dispatch(addCount(newHabit.id))
-    // }
-
-    // const handleDecrement = () => {
-    //     dispatch(lowCount(newHabit.id))
-    // }
-    console.log(newHabit)
+    
     return <div className={css.weeklyEl}>
         <p>{newHabit.habit}</p>
         {newHabit.repeat === "Many" ? <div className={css.count}>
