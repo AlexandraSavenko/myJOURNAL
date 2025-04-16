@@ -8,8 +8,6 @@ export const slice = createSlice({
   initialState: {
     dailyHabitsList: [],
     dailyProgress: {},
-    // isLoading: false,
-    // error: false,
   },
   reducers: {
     addNewHabit: (state, action) => {
@@ -32,11 +30,8 @@ export const slice = createSlice({
     },
     saveDailyProgress: (state, action) => {
     const {day, progress} = action.payload;   
-    // state.dailyProgress[day] = progress || 0;
-    // console.log(`day: ${day} progress:${progress} state: ${state.dailyProgress}`)
     if (day !== undefined && progress !== undefined) {
       state.dailyProgress[day] = progress;
-      console.log(`✅ Updated progress: day ${day}, progress ${progress}`);
     } else {
       console.warn("⚠️ Missing 'day' or 'progress' in payload:", action.payload);
     }

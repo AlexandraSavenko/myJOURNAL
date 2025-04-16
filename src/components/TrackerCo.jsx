@@ -1,10 +1,8 @@
-import clsx from 'clsx';
 import css from '../scss/TrackerCo.module.scss'
 import { useSelector } from 'react-redux';
 import { dailyHabitProgress } from '../redux/dailyHabitsSlice';
 export default function TrackerCo () {
     const myProgress = useSelector(dailyHabitProgress)
-console.log(myProgress)
     function getColorClass(percent) {
         if (percent === 0) return 'progress-0';
         if (percent <= 20) return 'progress-20';
@@ -30,24 +28,10 @@ console.log(myProgress)
         calendarArr.push(i)
     }
    
-
-    // const dayClass = clsx('day', {        
-    //     'progress-0': progress === 0,
-    //     'progress-20': progress >= 20 && progress < 40,
-    //     'progress-40': progress >= 40 && progress < 60,
-    //     'progress-60': progress >= 60 && progress < 80,
-    //     'progress-80': progress >= 80 && progress < 100,
-    //     'progress-100': progress === 100,
-
-    // })
     return <div className={css.tracker}>
 <p>Current month</p>
 <div className={css.days}>
-{/* {calendarArr.map((el, i) => <div key={i} id={el ? el : 'x'} className={css.x}>{el}</div>)} */}
 {calendarArr.map((day, index) => {
-//   const dateKey = day
-//     ? `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`
-//     : null;
 
 const dateKey = day || null;
 
