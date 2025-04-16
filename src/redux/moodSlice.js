@@ -17,6 +17,5 @@ const slice = createSlice({
     }
 })
 
-console.log(slice.actions)
 export const {saveMood} = slice.actions;
 export default slice.reducer
