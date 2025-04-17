@@ -7,6 +7,7 @@ import { addNewHabit, addCount, lowCount, saveDailyProgress} from "../redux/dail
 import {nanoid} from '@reduxjs/toolkit';
 import TrackerCo from "../components/TrackerCo";
 import { useEffect } from "react";
+import { dailyHabitProgress } from "../redux/dailyHabitsSlice";
 // import { addNewHabit } from "../redux/dailyHabitsSlice";
 
 export function Daily (){
@@ -31,6 +32,17 @@ useEffect(() => {
     dispatch(saveDailyProgress({ day: today, progress }));
     }, [totalDone, totalForDay, dispatch]);
 
+    const myProgress = useSelector(dailyHabitProgress);
+
+    function getColorClass(percent) {
+        if (percent === 0) return "progress-0";
+        if (percent <= 20) return "progress-20";
+        if (percent <= 40) return "progress-40";
+        if (percent <= 60) return "progress-60";
+        if (percent <= 80) return "progress-80";
+        return "progress-100";
+      }
+
     return <div>
         <DailyForm onSubmit={handleNewHabit}/>
     <h1>Daily</h1>
@@ -49,7 +61,8 @@ useEffect(() => {
         </li>
     }
     </ul>
-    <TrackerCo/>
+    <TrackerCo getColorClass={getColorClass}
+  progressData={myProgress} />
     </div>
 }
 

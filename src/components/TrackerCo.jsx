@@ -1,16 +1,7 @@
 import css from "../scss/TrackerCo.module.scss";
-import { useSelector } from "react-redux";
-import { dailyHabitProgress } from "../redux/dailyHabitsSlice";
-export default function TrackerCo() {
-  const myProgress = useSelector(dailyHabitProgress);
-  function getColorClass(percent) {
-    if (percent === 0) return "progress-0";
-    if (percent <= 20) return "progress-20";
-    if (percent <= 40) return "progress-40";
-    if (percent <= 60) return "progress-60";
-    if (percent <= 80) return "progress-80";
-    return "progress-100";
-  }
+
+export default function TrackerCo({ getColorClass, progressData }) {
+  
 
   const daysInMonthList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const now = new Date();
@@ -35,7 +26,7 @@ export default function TrackerCo() {
         {calendarArr.map((day, index) => {
           const dateKey = day || null;
 
-          const percent = myProgress[dateKey] || 0;
+          const percent = progressData[dateKey] || 0;
           const colorClass = getColorClass(percent);
 
           return (
