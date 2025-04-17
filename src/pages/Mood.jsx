@@ -9,11 +9,11 @@ export function Mood (){
 
     function getColorClass(percent) {
         if (percent === 0) return "progress-0";
-        if (percent <= 20) return "progress-20";
-        if (percent <= 40) return "progress-40";
-        if (percent <= 60) return "progress-60";
-        if (percent <= 80) return "progress-80";
-        return "progress-100";
+        if (percent === 'happy') return "mood-happy";
+        if (percent === 'sad') return "mood-sad";
+        if (percent === 'tired') return "mood-tired";
+        if (percent === 'angry') return "mood-angry";
+        return "mood-furious";
       }
     
 

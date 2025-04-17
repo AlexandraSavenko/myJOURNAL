@@ -27,13 +27,24 @@ export default function TrackerCo({ getColorClass, progressData }) {
           const dateKey = day || null;
 
           const percent = progressData[dateKey] || 0;
+          const mood = progressData[dateKey]
+
+//           const value = progressData[dateKey];
+
+// const percent = typeof value === 'number' ? value : 0;
+// const mood = typeof value === 'string' ? value : null;
+
+
           const colorClass = getColorClass(percent);
 
           return (
             <div
               key={index}
               className={`${css.day} ${day ? css[colorClass] : css.empty}`}>
-              {day}
+              <span> {day}</span>
+              {/* {typeof mood === "string"  && <span>{mood}</span>}
+              {typeof mood === "number"  && <span>{mood}%</span>} */}
+              {typeof mood === 'string' && <span>{mood}</span> }
             </div>
           );
         })}
