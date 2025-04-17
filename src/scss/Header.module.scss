@@ -1,8 +1,9 @@
 @use './mixins';
+@use './vars';
 
 header {
     width: 100%;
-    background-color: gray; 
+    background-color: vars.$second_light; 
     position: relative;
     @include mixins.media(desktop){
     padding-top: 12px;
@@ -11,6 +12,7 @@ header {
 
 }
 .jHeader{
+    color: vars.$main_dark;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -19,6 +21,7 @@ header {
     
 }
 .burger{
+    fill: vars.$second_dark;
     @include mixins.media (desktop){
         display: none;
     }
@@ -38,7 +41,7 @@ header {
     height: auto;
     width: 100%;
     padding: 0 24px;
-    background-color: gray;
+    background-color: vars.$second_light;
     position: absolute;
     top: 100%;
     left: 0;
