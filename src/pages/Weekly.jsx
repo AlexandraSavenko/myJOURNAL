@@ -26,10 +26,11 @@ export function Weekly () {
    const handleDelete = (id) => {
     dispatch(deleteHabit(id))
    }
+    const weeksArr = Object.keys(myProgress);
 
    useEffect(() => {
     const day = new Date().getDay();
-    const thisWeek = Object.keys(myProgress).length > 0 ? Object.keys(myProgress)[Object.keys(myProgress).length - 1] : 1;
+    const thisWeek = weeksArr.length > 0 ? weeksArr[weeksArr.length - 1] : 1;
     const weekId = day !== 1 ? thisWeek : thisWeek + 1;
        const progress = Math.round((totalDone / totalForWeek) * 100);
        dispatch(saveWeeklyProgress({ weekId: weekId, progress }));
@@ -53,7 +54,13 @@ export function Weekly () {
             </li>
         }
     </ul>
-    {/* <button type='button'>Function underfuned</button> */}
+    <div>
+        <div>
+            {
+                weeksArr.map((week, index) => <div key={index}>{week}</div> )
+            }
+        </div>
+    </div>
     </section>
 
 }

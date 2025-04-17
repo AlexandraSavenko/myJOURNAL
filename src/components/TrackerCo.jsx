@@ -21,19 +21,13 @@ export default function TrackerCo({ getColorClass, progressData }) {
 
   return (
     <div className={css.tracker}>
-      <p>Current month</p>
+      <p>{currentMonth}</p>
       <div className={css.days}>
         {calendarArr.map((day, index) => {
           const dateKey = day || null;
 
           const percent = progressData[dateKey] || 0;
           const mood = progressData[dateKey]
-
-//           const value = progressData[dateKey];
-
-// const percent = typeof value === 'number' ? value : 0;
-// const mood = typeof value === 'string' ? value : null;
-
 
           const colorClass = getColorClass(percent);
 
@@ -42,8 +36,6 @@ export default function TrackerCo({ getColorClass, progressData }) {
               key={index}
               className={`${css.day} ${day ? css[colorClass] : css.empty}`}>
               <span> {day}</span>
-              {/* {typeof mood === "string"  && <span>{mood}</span>}
-              {typeof mood === "number"  && <span>{mood}%</span>} */}
               {typeof mood === 'string' && <span>{mood}</span> }
             </div>
           );
