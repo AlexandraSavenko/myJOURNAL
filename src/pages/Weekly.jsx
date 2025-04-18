@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux"
 import { addNewHabit, addCount, lowCount, deleteHabit, saveWeeklyProgress } from "../redux/weeklyHabitsSlice"
 import {nanoid} from '@reduxjs/toolkit';
 import { useEffect } from 'react'
+import css from '../scss/Weekly.module.scss'
 
 export function Weekly () {  
     const dispatch = useDispatch() 
@@ -57,7 +58,7 @@ export function Weekly () {
     <div>
         <div>
             {
-                weeksArr.map((week, index) => <div key={index}>{week}</div> )
+                weeksArr.map((week, index) => <div className={css.jar} key={index}>{week}</div> )
             }
         </div>
     </div>
