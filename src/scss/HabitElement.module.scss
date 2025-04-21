@@ -4,11 +4,13 @@
     background-color: vars.$third_light;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 12px;
     padding: 12px;
     margin-top: 4px;
 }
 .habit{
+    width: 130px;
     word-break: break-word;
   overflow-wrap: break-word;
 }

@@ -10,7 +10,7 @@ export default function HabitElement ({newHabit, onPlus, onMinus, onDelete}) {
         <button onClick={()=> onPlus(newHabit.id)}>+</button>
         <span>{newHabit.count}</span>
         <button onClick={()=> onMinus(newHabit.id)}>-</button> 
-        <p>{newHabit.repeatTimes}</p>       
+       {newHabit.count !== Number(newHabit.repeatTimes) && <p>{newHabit.repeatTimes}</p>   }    
         </div> : <button onClick={()=> onPlus(newHabit.id)}>done</button> }
         <div className="result">{newHabit.repeat === "Once" ? newHabit.count === 1 && <FaRegFaceSmileBeam /> :
             newHabit.count === Number(newHabit.repeatTimes) &&  <FaRegFaceSmileBeam />
