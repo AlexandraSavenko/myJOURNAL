@@ -1,0 +1,30 @@
+@use './vars';
+
+.moodForm{
+    display: flex;
+}
+
+.moodForm div:hover {
+    cursor: pointer;
+color: vars.$hover_color;
+}
+
+.happy::before{
+    content: '\1F601';
+}
+
+.sad::before{
+    content: '\1F612';
+}
+
+.tired::before{
+    content: '\1F975';
+}
+
+.angry::before{
+    content: '\1F620';
+}
+
+.furious::before{
+    content: '\1F92C';
+}
