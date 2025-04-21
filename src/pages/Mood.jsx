@@ -6,7 +6,6 @@ import css from '../scss/Mood.module.scss';
 
 export function Mood (){
     const myMood = useSelector(moodTrackerList)
-
     function getColorClass(percent) {
         if (percent === 0) return "progress-0";
         if (percent === 'happy') return "mood-happy";
@@ -17,7 +16,7 @@ export function Mood (){
       }
     
 
-    return <div>
+    return <div className="container">
         <MoodForm/>
     <h1 className={css.header}>Mood</h1>
     <TrackerCo getColorClass={getColorClass} progressData={myMood}/>

@@ -4,6 +4,10 @@ export default function TrackerCo({ getColorClass, progressData }) {
   
 
   const daysInMonthList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const monthsList = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
   const now = new Date();
   const currentMonth = now.getMonth();
   const currentYear = now.getFullYear();
@@ -21,7 +25,7 @@ export default function TrackerCo({ getColorClass, progressData }) {
 
   return (
     <div className={css.tracker}>
-      <p>{currentMonth}</p>
+      <p>{monthsList[currentMonth]}</p>
       <div className={css.days}>
         {calendarArr.map((day, index) => {
           const dateKey = day || null;

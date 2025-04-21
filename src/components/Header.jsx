@@ -15,6 +15,7 @@ export default function Header () {
         }
     
     return <header>
+        <div className="container">
             <div className={css.jHeader}>
         <DateDisplay/>
         <div className={css.burger}>
@@ -23,6 +24,7 @@ export default function Header () {
         <nav className={clsx(css.headerNav, open && css.headerNavOpen)}>
         <Navigation closeMenu={handleNavigation} />
         </nav>
+        </div>
         </div>
     </header>
 }

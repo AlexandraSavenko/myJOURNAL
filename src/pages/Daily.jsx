@@ -43,7 +43,7 @@ useEffect(() => {
         return "progress-100";
       }
 
-    return <div>
+    return <div className="container">
         <DailyForm onSubmit={handleNewHabit}/>
     <h1>Daily</h1>
     <div className="total">

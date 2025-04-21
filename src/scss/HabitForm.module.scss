@@ -1,0 +1,43 @@
+@use './vars';
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background-color: vars.$third_light;
+    margin-top: 12px;
+    border-radius: 12px;
+}
+
+.fieldset{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding: 8px;
+}
+
+.fieldset div{
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.fieldset:hover{
+    border: 1px solid vars.$hover_color;
+}
+
+.numberInput{
+    width: 30px;
+}
+.button {
+    font-family: vars.$main_font;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: 2px solid vars.$second_dark;
+}
+
+.button:hover{
+    background-color: vars.$hover_color;
+}
