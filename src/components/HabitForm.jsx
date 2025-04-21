@@ -38,7 +38,7 @@ export default function DailyForm ({onSubmit}){
         {
         ({values}) =>(
         <Form className={css.form}>
-        <label> The name of a new habit:
+        <label className={css.habit}> The name of a new habit:
         <Field className={css.habitInput} type="text" name="habit"/>
         </label>
         <fieldset className={css.fieldset}>

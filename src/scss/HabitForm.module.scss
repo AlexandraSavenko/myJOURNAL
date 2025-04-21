@@ -12,6 +12,16 @@
     border-radius: 12px;
 }
 
+input{
+    padding: 4px 8px;
+    border: 2px dashed vars.$second_dark;
+    border-radius: 8px;
+    font-family: vars.$main_font;
+}
+
+.habit{
+    text-align: center;
+}
 .fieldset{
     display: flex;
     flex-direction: column;
@@ -25,19 +35,20 @@
     justify-content: space-between;
 }
 .fieldset:hover{
-    border: 1px solid vars.$hover_color;
+    border: 2px solid vars.$hover_color;
+    border-radius: 8px;
 }
 
 .numberInput{
     width: 30px;
 }
-.button {
-    font-family: vars.$main_font;
-    padding: 4px 8px;
-    border-radius: 8px;
-    border: 2px solid vars.$second_dark;
-}
+// .button {
+//     font-family: vars.$main_font;
+//     padding: 4px 8px;
+//     border-radius: 8px;
+//     border: 2px dashed vars.$second_dark;
+// }
 
-.button:hover{
-    background-color: vars.$hover_color;
-}
+// .button:hover{
+//     background-color: vars.$hover_color;
+// }

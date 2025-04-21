@@ -1,12 +1,17 @@
+@use './vars';
 .weeklyEl{
     border-radius: 12px;
-    background-color: pink;
+    background-color: vars.$third_light;
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 12px;
+    margin-top: 4px;
 }
-
+.habit{
+    word-break: break-word;
+  overflow-wrap: break-word;
+}
 .count {
     display: flex;
     align-items: center;
@@ -15,11 +20,7 @@
 .count button {
     width: 28px;
     height: 28px;
-    background-color: wheat;
     border: none;
     border-radius: 8px;
 }
 
-.count span {
-    padding: 12px;
-}

@@ -35,6 +35,16 @@
   color: black;
   }
 
+  button {
+    font-family: vars.$main_font;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: 2px dashed vars.$second_dark;
+  }
+  button:hover{
+    background-color: vars.$hover_color;
+}
+h1 {text-align: center;}
   .container {
     padding: 0 20px;
     margin: 0 auto;

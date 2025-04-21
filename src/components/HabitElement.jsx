@@ -5,7 +5,7 @@ import css from '../scss/HabitElement.module.scss'
 
 export default function HabitElement ({newHabit, onPlus, onMinus, onDelete}) {
     return <div className={css.weeklyEl}>
-        <p>{newHabit.habit}</p>
+        <p className={css.habit}>{newHabit.habit}</p>
         {newHabit.repeat === "Many" ? <div className={css.count}>
         <button onClick={()=> onPlus(newHabit.id)}>+</button>
         <span>{newHabit.count}</span>
