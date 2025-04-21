@@ -1,3 +1,15 @@
+@use './vars';
+
+.tracker{
+    margin-top: 4px;
+    padding: 4px 0;
+}
+.month{
+    text-align: center;
+    background-color: vars.$third_light;
+    padding: 4px;
+    border-radius: 8px 8px 0 0;
+}
 .days{
     display: grid;
     grid-template-columns: repeat(7, 1fr);

@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { dailyHabitProgress } from "../redux/dailyHabitsSlice";
 import AchievementsCo from "../components/AchievementsCo";
 // import { addNewHabit } from "../redux/dailyHabitsSlice";
+import css from '../scss/Daily.module.scss'
 
 export function Daily (){
     const myHabits = useSelector(dailyHabitsArr)
@@ -46,8 +47,9 @@ useEffect(() => {
 
     return <div className="container">
         <DailyForm onSubmit={handleNewHabit}/>
-    <h1>Daily</h1>
-    <div className="total">
+    <div className={css.total}>    
+        <h1>Daily</h1>
+
         <AchievementsCo totalDone={totalDone} goal={totalForDay}/>
     {/* {[...Array(totalDone)].map((_, i) => (
     <span key={i}>✅</span>
@@ -59,7 +61,7 @@ useEffect(() => {
         return <li key={el.id}>
         <HabitElement newHabit={el} onPlus={handleIncrement} onMinus={handleDecrement}/>
         </li> }) : <li>
-        <p>Add you first habit</p>
+        <p className={css.text}>Add you first habit</p>
         </li>
     }
     </ul>

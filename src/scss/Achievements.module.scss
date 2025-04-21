@@ -1,0 +1,15 @@
+@use './vars';
+
+.bar{
+    width: 30px;
+    height: 40px;
+    border: 1px solid vars.$second_dark;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.fill{
+    width: 100%;
+    background-color: vars.$hover_color;
+}

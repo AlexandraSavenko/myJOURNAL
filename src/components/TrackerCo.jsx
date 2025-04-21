@@ -25,7 +25,7 @@ export default function TrackerCo({ getColorClass, progressData }) {
 
   return (
     <div className={css.tracker}>
-      <p>{monthsList[currentMonth]}</p>
+      <p className={css.month}>{monthsList[currentMonth]}</p>
       <div className={css.days}>
         {calendarArr.map((day, index) => {
           const dateKey = day || null;
