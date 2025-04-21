@@ -8,6 +8,7 @@ import {nanoid} from '@reduxjs/toolkit';
 import TrackerCo from "../components/TrackerCo";
 import { useEffect } from "react";
 import { dailyHabitProgress } from "../redux/dailyHabitsSlice";
+import AchievementsCo from "../components/AchievementsCo";
 // import { addNewHabit } from "../redux/dailyHabitsSlice";
 
 export function Daily (){
@@ -47,9 +48,10 @@ useEffect(() => {
         <DailyForm onSubmit={handleNewHabit}/>
     <h1>Daily</h1>
     <div className="total">
-    {[...Array(totalDone)].map((_, i) => (
+        <AchievementsCo totalDone={totalDone} goal={totalForDay}/>
+    {/* {[...Array(totalDone)].map((_, i) => (
     <span key={i}>✅</span>
-    ))}
+    ))} */}
     </div>
     <ul>
     {
