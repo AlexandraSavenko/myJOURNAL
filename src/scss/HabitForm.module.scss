@@ -21,6 +21,9 @@ input{
 
 .habit{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 .fieldset{
     display: flex;
@@ -29,6 +32,11 @@ input{
     padding: 8px;
 }
 
+.fieldset label {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
 .fieldset div{
     width: auto;
     display: flex;

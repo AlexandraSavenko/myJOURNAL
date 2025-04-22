@@ -13,7 +13,6 @@ export function Weekly () {
     const dispatch = useDispatch() 
     const myHabits = useSelector(weeklyHabitsArr)
     const myProgress = useSelector(weeklyHabitProgress)
-    console.log(myProgress)
     const totalForWeek = myHabits.reduce((acc, el) => el.repeat === 'Once' ? acc += 1 : acc += Number(el.repeatTimes), 0)
     const totalDone = myHabits.reduce((acc, el) => acc += el.count, 0)
     const handleNewHabit = (formValue) => {
@@ -34,7 +33,6 @@ export function Weekly () {
     const day = new Date().getDay();
     const thisWeek = myProgress.length > 0 ? myProgress[myProgress.length - 1].weekId : 1; 
     const weekId = day !== 1 ? thisWeek : thisWeek + 1;
-    console.log('this week' ,thisWeek)
        dispatch(saveWeeklyProgress({ weekId: weekId, totalDone, totalForWeek }));
        }, [totalDone, totalForWeek, dispatch]);
 

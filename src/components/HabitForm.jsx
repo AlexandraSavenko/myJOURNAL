@@ -11,14 +11,11 @@ export default function DailyForm ({onSubmit}){
 
     const ValidationSchema = Yup.object().shape({
         habit: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
+        repeat: Yup.string().required('Required'),
         repeatTimes: Yup.string().max(4, "Too many times!")
         .matches(/^\d+$/, <em>Invalid number of times</em>)
       });
-// const dispatch = useDispatch();
 
-// const handleNewHabit = (formValue) => {
-//   dispatch(addNewHabit({id: nanoid(), ...formValue, count: 0}))
-// }
     return <div className={css.formWrap}>
     <Formik 
     initialValues={{
@@ -27,9 +24,6 @@ export default function DailyForm ({onSubmit}){
         repeatTimes: '',
     }} 
     onSubmit={(value, action)=> {
-        // toast.success("Form submitted successfully!");
-        // console.log(value)
-        // handleNewHabit(value)
         onSubmit(value)
         action.resetForm()
     }}
