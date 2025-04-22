@@ -25,11 +25,17 @@ input{
     flex-direction: column;
     gap: 4px;
 }
+
+.radio{
+    accent-color: vars.$hover_color;
+    margin-right: 8px;
+}
 .fieldset{
     display: flex;
     flex-direction: column;
     border: none;
     padding: 8px;
+    gap: 8px;
 }
 
 .fieldset label {

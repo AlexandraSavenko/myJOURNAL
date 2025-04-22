@@ -38,11 +38,11 @@ export default function DailyForm ({onSubmit}){
         <fieldset className={css.fieldset}>
             <legend>How many times to repeat:</legend>
         <label>Once
-        <Field type="radio" name="repeat" value="Once" />
+        <Field className={css.radio} type="radio" name="repeat" value="Once" />
         </label>
         <div>
         <label>Many
-        <Field type="radio" name="repeat" value="Many" /> 
+        <Field className={css.radio} type="radio" name="repeat" value="Many" /> 
         </label>
         {values.repeat === 'Many' && ( <label>How many:
             <Field className={css.numberInput} type="text" name="repeatTimes"/></label>
