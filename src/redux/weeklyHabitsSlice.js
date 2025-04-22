@@ -7,7 +7,10 @@ export const slice = createSlice({
   name: "weeklyHabits",
   initialState: {
     weeklyHabitsList: [],
-    weeklyProgress: {},
+    weeklyProgress: {1: 40,
+      2: 60,
+      3: 100,
+    },
     // isLoading: false,
     // error: false,
   },

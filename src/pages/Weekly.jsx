@@ -33,6 +33,7 @@ export function Weekly () {
     const day = new Date().getDay();
     const thisWeek = weeksArr.length > 0 ? weeksArr[weeksArr.length - 1] : 1;
     const weekId = day !== 1 ? thisWeek : thisWeek + 1;
+    console.log(thisWeek)
        const progress = Math.round((totalDone / totalForWeek) * 100);
        dispatch(saveWeeklyProgress({ weekId: weekId, progress }));
        }, [totalDone, totalForWeek, dispatch]);
