@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import css from "../scss/TrackerCo.module.scss";
 
 export default function TrackerCo({ getColorClass, progressData }) {
@@ -33,14 +34,26 @@ export default function TrackerCo({ getColorClass, progressData }) {
           const percent = progressData[dateKey] || 0;
           const mood = progressData[dateKey]
 
+          function getDayMood (mood) {
+            switch (mood){
+              case 'happy': return <span>&#128513;</span>;
+              case 'sad': return <span>&#128530;</span>;
+              case 'tired': return <span>&#129397;</span>;
+              case 'angry': return <span>&#128545;</span>;
+              case 'furious': return <span>&#129324;</span>;
+            }
+          }
+
+          const dayMood = getDayMood(mood)
+
           const colorClass = getColorClass(percent);
 
           return (
             <div
               key={index}
               className={`${css.day} ${day ? css[colorClass] : css.empty}`}>
-              <span> {day}</span>
-              {typeof mood === 'string' && <span>{mood}</span> }
+              <span className={clsx(typeof mood === 'string' && css.dayDate)}> {day}</span>
+              {typeof mood === 'string' && <span>{dayMood}</span> }
             </div>
           );
         })}

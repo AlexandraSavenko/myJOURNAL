@@ -24,6 +24,7 @@
     border: 2px solid black;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .progress-0 { background-color: #eee; }
@@ -38,3 +39,8 @@
 .mood-tider{border-color: grey}
 .mood-angry{border-color: pink}
 .mood-furious{border-color: red;}
+
+.dayDate{
+    font-size: 8px;
+    text-align: end;
+}
