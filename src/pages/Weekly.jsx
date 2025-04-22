@@ -7,6 +7,7 @@ import { addNewHabit, addCount, lowCount, deleteHabit, saveWeeklyProgress } from
 import {nanoid} from '@reduxjs/toolkit';
 import { useEffect } from 'react'
 import css from '../scss/Weekly.module.scss'
+import AchievementsCo from '../components/AchievementsCo'
 
 export function Weekly () {  
     const dispatch = useDispatch() 
@@ -27,23 +28,22 @@ export function Weekly () {
    const handleDelete = (id) => {
     dispatch(deleteHabit(id))
    }
-    const weeksArr = Object.keys(myProgress);
 
    useEffect(() => {
+    if (totalDone === undefined || totalForWeek === undefined || totalForWeek === 0) return;
     const day = new Date().getDay();
-    const thisWeek = weeksArr.length > 0 ? weeksArr[weeksArr.length - 1] : 1;
+    const thisWeek = myProgress.length > 0 ? myProgress[myProgress.length - 1].weekId : 1; 
     const weekId = day !== 1 ? thisWeek : thisWeek + 1;
-    console.log(thisWeek)
-       const progress = Math.round((totalDone / totalForWeek) * 100);
-       dispatch(saveWeeklyProgress({ weekId: weekId, progress }));
+    console.log('this week' ,thisWeek)
+       dispatch(saveWeeklyProgress({ weekId: weekId, totalDone, totalForWeek }));
        }, [totalDone, totalForWeek, dispatch]);
 
     return <div id="container"> 
     <HabitForm onSubmit={handleNewHabit}/>    
     <h1>weekly habits</h1>
-    <div className="total">
+    <div className={css.total}>
     {[...Array(totalDone)].map((_, i) => (
-    <span key={i}>✅</span>
+    <span className={css.circle} key={i}>&#128176;</span>
   ))}
     </div>
     <ul>
@@ -58,9 +58,13 @@ export function Weekly () {
     </ul>
     <div>
         <div>
+            <ul className={css.jars}>
             {
-                weeksArr.map((week, index) => <div className={css.jar} key={index}>{week}</div> )
-            }
+                myProgress.map((week, index) => <li className={css.jar}  key={index}>
+                    <span>week {week.weekId}</span>
+                    <AchievementsCo totalDone={week.totalDone} goal={week.totalForWeek} />
+                </li> )
+            }</ul>
         </div>
     </div>
     </div>
