@@ -44,6 +44,18 @@
   button:hover{
     background-color: vars.$hover_color;
 }
+
+.hamburger-react div {
+border-radius: 4px;
+}
+
+.hamburger-react{
+  &:hover {
+    div{
+        background: vars.$hover_color !important;
+    }
+  }
+}
 h1 {text-align: center;}
   .container {
     padding: 0 20px;

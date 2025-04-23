@@ -20,12 +20,45 @@ header {
     z-index: 2;
     
 }
+.house{
+    color: vars.$second_dark;
+    width: 24px;
+    height: 24px;
+}
+.navLink{
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    position: relative;
+    &:hover .house{color: vars.$hover_color;
+    }
+} 
+
+.navLink::after{
+    content: '';
+    background-color: vars.$second_dark;
+    border-radius: 4px;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    }
+.selected{
+    .house{color: vars.$hover_color;
+}
+}
 .burger{
     fill: vars.$second_dark;
+    
     @include mixins.media (desktop){
         display: none;
     }
 }
+
+
 .headerNav{
     display: none;
     @include mixins.media (desktop){

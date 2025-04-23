@@ -9,7 +9,6 @@ import TrackerCo from "../components/TrackerCo";
 import { useEffect } from "react";
 import { dailyHabitProgress } from "../redux/dailyHabitsSlice";
 import AchievementsCo from "../components/AchievementsCo";
-// import { addNewHabit } from "../redux/dailyHabitsSlice";
 import css from '../scss/Daily.module.scss'
 
 export function Daily (){
@@ -49,11 +48,7 @@ useEffect(() => {
         <DailyForm onSubmit={handleNewHabit}/>
     <div className={css.total}>    
         <h1>Daily</h1>
-
         <AchievementsCo totalDone={totalDone} goal={totalForDay}/>
-    {/* {[...Array(totalDone)].map((_, i) => (
-    <span key={i}>✅</span>
-    ))} */}
     </div>
     <ul>
     {

@@ -36,7 +36,7 @@ export function Weekly () {
        dispatch(saveWeeklyProgress({ weekId: weekId, totalDone, totalForWeek }));
        }, [totalDone, totalForWeek, dispatch]);
 
-    return <div id="container"> 
+    return <div className="container"> 
     <HabitForm onSubmit={handleNewHabit}/>    
     <h1>weekly habits</h1>
     <div className={css.total}>
