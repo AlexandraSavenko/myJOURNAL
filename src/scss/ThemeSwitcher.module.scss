@@ -1,0 +1,25 @@
+@use './vars';
+
+.themeBox{
+    display: flex;
+    gap: 4px;
+}
+.themeBtn{
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid vars.$second_dark;
+
+}
+
+.themeBtn:nth-child(1){
+    background-color: vars.$main_light;
+}
+
+.themeBtn:nth-child(2){
+    background-color: vars.$main_dark;
+}
+.active{
+    border-color: vars.$hover_color
+}

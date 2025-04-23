@@ -15,11 +15,13 @@ header {
     color: vars.$main_dark;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    gap: 12px;
     align-items: center;
     z-index: 2;
+
     
 }
+
 .house{
     color: vars.$second_dark;
     width: 24px;

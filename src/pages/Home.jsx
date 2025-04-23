@@ -8,6 +8,6 @@ export function Home () {
     return <div className="container"> <h1>Home Page</h1>
     {isLoading && <p>Weather loading</p> }
     {error && <p>Sorry, something went wrong</p> }
-{  weatherData && <img src={weatherIconURL} alt="" />}
+{  weatherData && <img src={weatherIconURL} alt={weatherData.weather[0].description} />}
     </div>
 }
